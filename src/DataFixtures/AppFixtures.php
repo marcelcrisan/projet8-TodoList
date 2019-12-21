@@ -24,6 +24,7 @@ class AppFixtures extends Fixture
     {
         $this->encoder = $encoder;
     }
+    
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
@@ -47,7 +48,7 @@ class AppFixtures extends Fixture
         $user1 = new User();
         $user1->setUsername('user1');
         $user1->setEmail('user1@symfony.com');
-        $user1->setPassword($this->encoder->encodePassword($user, 'computer'));
+        $user1->setPassword($this->encoder->encodePassword($user1, 'computer'));
         $user1->setRoles(['ROLE_USER']);
         
         $manager->persist($user1);

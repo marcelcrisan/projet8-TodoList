@@ -5,6 +5,7 @@ namespace App\Controller\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
+use Doctrine\ORM\EntityManagerInterface;
 
 class UsersListController extends AbstractController
 {
@@ -19,14 +20,16 @@ class UsersListController extends AbstractController
      * 
      */
 
-    public function listAction()
+    public function listAction(EntityManagerInterface $manager)
     {
         
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
             
-        $users = $this->getDoctrine()->getRepository('App:User')->findAll();
+        $users = $manager->getRepository('App:User')->findAll();
 
-        return $this->render('user/list.html.twig', ['users' => $users]);
+        return $this->render('user/list.html.twig', [
+            'users' => $users
+            ]);
         
     }
 }

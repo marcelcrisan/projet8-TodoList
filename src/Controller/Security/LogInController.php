@@ -22,13 +22,4 @@ class LogInController extends AbstractController
             'error'         => $error,
         ]);
     }
-
-    /**
-     * @Route("/login_check", name="login_check")
-     */
-    public function loginCheck()
-    {
-        // This code is never executed.
-      
-    }
 }
