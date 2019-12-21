@@ -44,7 +44,15 @@ class AppFixtures extends Fixture
         
         $manager->persist($user);
 
-        $users =  [$useradmin, $user] ;
+        $user1 = new User();
+        $user1->setUsername('user1');
+        $user1->setEmail('user1@symfony.com');
+        $user1->setPassword($this->encoder->encodePassword($user, 'computer'));
+        $user1->setRoles(['ROLE_USER']);
+        
+        $manager->persist($user1);
+
+        $users =  [$useradmin, $user, $user1] ;
         foreach ($users as $user) {
             for ($i = 1; $i <= mt_rand(4,6); $i++) {
                 $task = new Task();

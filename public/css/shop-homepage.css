@@ -426,9 +426,6 @@ tr {
 }
 .pull-right-list-btn {
     margin: 2%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
     width: 14%;
     display: block;
 }
