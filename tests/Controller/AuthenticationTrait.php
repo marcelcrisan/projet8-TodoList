@@ -16,7 +16,7 @@ trait AuthenticationTrait
      * @param string $username
      * @return \Symfony\Bundle\FrameworkBundle\Client
      */
-    public function createAuthenticatedClient( $username = 'admin')
+    public function createAuthenticatedClient( $username = 'useradmin')
     {
         $client = static::createClient();
         $session = $client->getContainer()->get('session');
